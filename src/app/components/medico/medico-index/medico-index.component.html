@@ -1,0 +1,27 @@
+<h1>Lista de médicos</h1>
+    <form class="pure-form">
+        <label for="codigo">Código:</label>
+        <input type="text" id="codigoPesquisa" [(ngModel)]="codigoPesquisa" name="codigoPesquisa">
+        <button type="button" (click)="get()" class="pure-button pure-button-primary">Pesquisar</button>
+        <button type="button" (click)="create()" class="pure-button">Novo</button>        
+    </form>      
+    <table id="tabelaMedicos" class="pure-table pure-table-bordered">
+        <thead>
+            <tr>
+                <th>Código</th>
+                <th>Nome</th>
+                <th>Data Nascimento</th>
+                <th>CRM</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody id="dadosTabelaMedico">
+            <tr *ngFor="let medico of medicos">
+                <td>{{medico.Codigo}}</td>
+                <td>{{medico.Nome}}</td>
+                <td>{{medico.DataNascimento}}</td>
+                <td>{{medico.CRM}}</td>
+                <td><a class='pure-menu-link cursor' (click)='editar(medico.Codigo)'>Editar</a><a class='pure-menu-link cursor' (click)='desejaExcluir(medico.Codigo)'>Excluir</a></td>
+            </tr>            
+        </tbody>
+    </table>  
